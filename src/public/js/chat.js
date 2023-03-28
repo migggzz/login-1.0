@@ -28,7 +28,7 @@ chatBox.addEventListener("keyup", event => {
     }
 })
 
-//Recibir Mensajes
+//Receive messages
 socket.on("logs", data => {
     const divLog = document.getElementById("messageLogs")
     let messages = ""

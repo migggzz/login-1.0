@@ -7,6 +7,7 @@ import MongoStore from "connect-mongo";
 import __dirname from "./utils.js"
 import run from "./run.js";
 
+const PORT = 8080;
 const app = express()
 
 app.use(express.json())
@@ -36,7 +37,7 @@ mongoose.connect(MONGO_URI, {
         console.log("DB No conected...")
         return
     }
-    const httpServer = app.listen(8080, () => console.log("Listening..."))
+    const httpServer = app.listen(PORT, () => console.log("Listening on port 8080"))
     const socketServer = new Server(httpServer)
     httpServer.on("error", (e) => console.log("ERROR: " + e))
 

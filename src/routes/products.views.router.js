@@ -27,12 +27,14 @@ router.get("/", async (req, res) => {
         lean: true
     }
     
-    const data = await productModel.paginate(search, options)
+    let data = await productModel.paginate(search, options)
+    data.prevLink = data.hasPrevPage ? `/products?page=${data.prevPage}&limit=${limit}` : '';
+    data.nextLink = data.hasNextPage ? `/products?page=${data.nextPage}&limit=${limit}` : '';
     console.log(JSON.stringify(data, null, 2, '\t'));
 
     const user = req.session.user
 
-    res.render('products', {data, user})
+    res.render('products', data,user)
 })
 
 export default router

@@ -20,6 +20,16 @@
     </tr>
     {{/each}}  
 </table>
+<div>
+        {{#if hasPrevPage}}
+            <a href="{{prevLink}}">Previous</a>
+        {{/if}}
+
+        {{#if hasNextPage}}
+        <a href="{{nextLink}}">Next</a>
+        {{/if}}
+
+    </div>
 <div id="moving"></div>
 
 <script src="/socket.io/socket.io.js"></script>

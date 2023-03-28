@@ -2,14 +2,14 @@
 <hr>
 <table id="productsTable">
     <tr>
-        <td><strong>Producto</strong></td>
-        <td><strong>Descripción</strong></td>
-        <td><strong>Precio</strong></td>
-        <td><strong>Código</strong></td>
+        <td><strong>Producst</strong></td>
+        <td><strong>Description</strong></td>
+        <td><strong>Price</strong></td>
+        <td><strong>Code</strong></td>
         <td><strong>Stock</strong></td>
-        <td><strong>Categoría</strong></td>
+        <td><strong>Category</strong></td>
     </tr>
-    {{#each data.docs}}
+    {{#each docs}}
     <tr>
     <td>{{this.title}}</td>
     <td>{{this.description}}</td>
@@ -20,4 +20,14 @@
     </tr>
     {{/each}}  
 </table>
+<div>
+        {{#if hasPrevPage}}
+            <a href="{{prevLink}}">Previous</a>
+        {{/if}}
+
+        {{#if hasNextPage}}
+        <a href="{{nextLink}}">Next</a>
+        {{/if}}
+        <p>END</p>
+    </div>
 <div id="moving"></div>
