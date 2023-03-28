@@ -34,7 +34,7 @@ router.get("/", async (req, res) => {
 
     const user = req.session.user
 
-    res.render('products', data,user)
+    res.render('products',{data,user})
 })
 
 export default router

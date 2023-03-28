@@ -3,12 +3,12 @@ import UserModel from "../dao/models/user.model.js";
 
 const router = Router()
 
-//Vista para registrar usuarios
+//View to Register Users
 router.get('/register', (req, res) => {
     res.render('sessions/register')
 })
 
-// API para crear usuarios en la DB
+// API to create aa user in the DB
 router.post('/register', async(req, res) => {
     const userNew = req.body
     console.log(userNew);
@@ -19,12 +19,12 @@ router.post('/register', async(req, res) => {
     res.redirect('/session/login')
 })
 
-// Vista de Login
+// Login View
 router.get('/login', (req, res) => {
     res.render('sessions/login')
 })
 
-// API para login
+// API for login
 router.post('/login', async (req, res) => {
     const { email, password } = req.body
 
@@ -39,7 +39,7 @@ router.post('/login', async (req, res) => {
     res.redirect('/products')
 })
 
-// Cerrar Session
+// close Session
 router.get('/logout', (req, res) => {
     req.session.destroy(err => {
         if(err) {

@@ -9,7 +9,7 @@
         <td><strong>Stock</strong></td>
         <td><strong>Category</strong></td>
     </tr>
-    {{#each docs}}
+    {{#each data.docs}}
     <tr>
     <td>{{this.title}}</td>
     <td>{{this.description}}</td>
@@ -21,12 +21,12 @@
     {{/each}}  
 </table>
 <div>
-        {{#if hasPrevPage}}
-            <a href="{{prevLink}}">Previous</a>
+        {{#if data.hasPrevPage}}
+            <a href="{{data.prevLink}}">Previous</a>
         {{/if}}
 
-        {{#if hasNextPage}}
-        <a href="{{nextLink}}">Next</a>
+        {{#if data.hasNextPage}}
+        <a href="{{data.nextLink}}">Next</a>
         {{/if}}
         <p>END</p>
     </div>
