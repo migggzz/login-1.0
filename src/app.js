@@ -6,6 +6,9 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import __dirname from "./utils.js"
 import run from "./run.js";
+import  {config} from "dotenv";
+
+config()
 
 const PORT = 8080;
 const app = express()
@@ -17,8 +20,8 @@ app.engine("handlebars", handlebars.engine())
 app.set("views", __dirname + "/views")
 app.set("view engine", "handlebars")
 
-const MONGO_URI = "mongodb+srv://miggz:miguel1989@cluster00.8kbvpfy.mongodb.net/?retryWrites=true&w=majority"
-const MONGO_DB_NAME = "coder_project"
+const MONGO_URI = process.env.mongo_uri
+const MONGO_DB_NAME = process.env.mongo_db_name
 
 app.use(session({
     store: MongoStore.create({
