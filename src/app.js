@@ -7,6 +7,8 @@ import MongoStore from "connect-mongo";
 import __dirname from "./utils.js"
 import run from "./run.js";
 import  {config} from "dotenv";
+import passport from "passport";
+import initializePassport from "./config/passport.config.js";
 
 config()
 
@@ -33,6 +35,10 @@ app.use(session({
     saveUninitialized: true
 }))
 
+initializePassport();
+
+app.use(passport.initialize())
+app.use(passport.session())
 mongoose.connect(MONGO_URI, {
     dbName: MONGO_DB_NAME
 }, (error) => {
