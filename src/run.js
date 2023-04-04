@@ -13,7 +13,7 @@ const run = (socketServer, app) => {
     })
 
     app.use("/products", productViewsRouter)
-    app.use("/session", sessionRouter)
+    app.use("/", sessionRouter)
 
 
     app.use("/api/products", productRouter)
@@ -30,7 +30,7 @@ const run = (socketServer, app) => {
         })
     })
 
-    app.use("/", (req, res) => res.send("Main Page"))
+  
 
 }
 

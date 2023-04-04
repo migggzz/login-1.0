@@ -24,11 +24,11 @@ router.post('/register', async(req, res) => {
     const user = new UserModel(userNew)
     await user.save()
 
-    res.redirect('/session/login')
+    res.redirect('/')
 })
 
 // Login View
-router.get('/login', (req, res) => {
+router.get('/', (req, res) => {
     res.render('sessions/login')
 })
 
@@ -59,7 +59,7 @@ router.get('/logout', (req, res) => {
         if(err) {
             console.log(err);
             res.status(500).render('errors/base', {error: err})
-        } else res.redirect('/sessions/login')
+        } else res.redirect('/')
     })
 })
 
