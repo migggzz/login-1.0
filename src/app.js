@@ -39,6 +39,7 @@ initializePassport();
 
 app.use(passport.initialize())
 app.use(passport.session())
+
 mongoose.connect(MONGO_URI, {
     dbName: MONGO_DB_NAME
 }, (error) => {

@@ -76,6 +76,18 @@ router.post('/login', passport.authenticate('login',{failureRedirect: '/failLogi
     res.redirect('/products')
 })
 
+router.get('/github', passport.authenticate('github', { scope: ['user: email']}), (req, res) => {
+
+})
+
+router.get('/githubcallback', passport.authenticate('github', { failureRedirect: '/'}), async (req, res) => {
+    console.log("Callback: ", req.user)
+    req.session.user = req.user
+    console.log("User session: ", req.session.user)
+    res.redirect('/products')
+})
+
+
 // close Session
 router.get('/logout', (req, res) => {
     req.session.destroy(err => {
